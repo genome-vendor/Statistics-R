@@ -2,7 +2,7 @@
 ## This file was generated automatically by Class::HPLOO/0.12
 ##
 ## Original file:    ./lib/Statistics/R.hploo
-## Generation date:  2004-02-21 20:21:14
+## Generation date:  2004-02-23 22:13:23
 ##
 ## ** Do not change this file, use the original HPLOO source! **
 #############################################################################
@@ -22,7 +22,7 @@
 
 { package Statistics::R ;
 
-  use strict qw(vars) ;
+  use strict qw(vars) ; no warnings ;
 
   my (%CLASS_HPLOO , $this) ;
  
@@ -45,7 +45,7 @@
   
   use vars qw($VERSION) ;
   
-  $VERSION = 0.01 ;
+  $VERSION = 0.02 ;
   
   my @ERROR ;
   
@@ -215,6 +215,10 @@ Return I<TRUE> if the bridge is blocked for your PID.
 
 In other words, returns I<TRUE> if other process has I<lock()ed> the bridge.
 
+=item is_started
+
+Return I<TRUE> if the R interpreter is started, or still started.
+
 =item clean_up
 
 Clean up the enverioment, removing all the objects.
@@ -254,7 +258,7 @@ From your script you need to use the I<start_sharedR()> option:
   
   my $R = Statistics::R->new() ;
   
-  $R->startR ;
+  $R->start_sharedR ;
   
   $R->send('x = 123') ;
   

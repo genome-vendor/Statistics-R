@@ -1,8 +1,8 @@
 #############################################################################
-## This file was generated automatically by Class::HPLOO/0.10
+## This file was generated automatically by Class::HPLOO/0.12
 ##
 ## Original file:    ./lib/Statistics/R/Bridge.hploo
-## Generation date:  2004-02-06 00:11:36
+## Generation date:  2004-02-23 22:13:23
 ##
 ## ** Do not change this file, use the original HPLOO source! **
 #############################################################################
@@ -22,9 +22,9 @@
 
 { package Statistics::R::Bridge ;
 
-  use strict qw(vars) ;
+  use strict qw(vars) ; no warnings ;
 
-  my ($this) ;
+  my (%CLASS_HPLOO , $this) ;
  
   sub new { 
     my $class = shift ;
@@ -34,7 +34,10 @@
     my $ret_this = defined &Bridge ? $this->Bridge(@_) : undef ;
     $this = $ret_this if ( UNIVERSAL::isa($ret_this,$class) ) ;
     $this = undef if ( $ret_this == $undef ) ;
-    return $this ;
+    if ( $this && $CLASS_HPLOO{ATTR} ) {
+    foreach my $Key ( keys %{$CLASS_HPLOO{ATTR}} ) {
+    tie( $this->{$Key} => 'Class::HPLOO::TIESCALAR' , $CLASS_HPLOO{ATTR}{$Key}{tp} , $CLASS_HPLOO{ATTR}{$Key}{pr} , \$this->{CLASS_HPLOO_ATTR}{$Key} ) if !exists $this->{$Key} ;
+    } } return $this ;
   }
 
 

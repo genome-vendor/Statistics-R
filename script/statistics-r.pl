@@ -38,6 +38,7 @@ exit;
       print " OK\n" ;
       if ( $^O =~ /^(?:.*?win32|dos)$/i ) {
         print "[Press Ctrl+C to terminate].\n" ;
+        while(1) { sleep(10) ;}
       }
       else {
         my $child_pid = fork ;

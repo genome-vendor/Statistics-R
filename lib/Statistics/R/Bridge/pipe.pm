@@ -2,7 +2,7 @@
 ## This file was generated automatically by Class::HPLOO/0.12
 ##
 ## Original file:    ./lib/Statistics/R/Bridge/pipe.hploo
-## Generation date:  2004-02-21 19:42:20
+## Generation date:  2004-02-23 22:13:24
 ##
 ## ** Do not change this file, use the original HPLOO source! **
 #############################################################################
@@ -22,7 +22,7 @@
 
 { package Statistics::R::Bridge::pipe ;
 
-  use strict qw(vars) ;
+  use strict qw(vars) ; no warnings ;
 
   my (%CLASS_HPLOO , $this) ;
  
@@ -452,11 +452,12 @@
     if ( $starting ) {
       $this->stop ;
     }
-    else { $this->sleep_unsync ;}
-    
-    if ( $this->wait_starting && $no_recall ) {
-      unlink($this->{STARTING_R}) ;
-      return $this->start_shared(1) ;
+    else {
+      $this->sleep_unsync ;
+      if ( $this->wait_starting && $no_recall ) {
+        unlink($this->{STARTING_R}) ;
+        return $this->start_shared(1) ;
+      }
     }
 
     my $stat = $this->start ;
