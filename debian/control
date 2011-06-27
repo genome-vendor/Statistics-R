@@ -1,0 +1,20 @@
+Source: libstatistics-r-perl
+Section: perl
+Priority: optional
+Build-Depends: debhelper (>= 7)
+Build-Depends-Indep: perl
+Maintainer: Randy Hancock <rhancock@>
+Standards-Version: 3.8.3
+Homepage: http://search.cpan.org/dist/Statistics-R/
+
+Package: libstatistics-r-perl
+Architecture: all
+Depends: ${perl:Depends}, ${misc:Depends}
+Description: Controls the R (R-project) interpreter through Perl.
+ This will permit the control of the the R (R-project) interpreter through
+ Perl in different architectures and OS.
+ .
+ You can for example, start only one instance of the R interpreter and have
+ different Perl process accessing it.
+ .
+ This description was automagically extracted from the module by dh-make-perl.
